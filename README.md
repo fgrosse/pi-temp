@@ -5,8 +5,6 @@
 
 Small utility to export the CPU temperature of a Raspberry Pi as Prometheus metric.
 
-[![Build Status][travis_badge]][travis]
-
 ### Usage
 
 ```shell
