@@ -1,6 +1,11 @@
 # pi-temp
 
+[![Build Status](https://secure.travis-ci.org/fgrosse/pi-temp.png?branch=master)](http://travis-ci.org/fgrosse/pi-temp)
+[![License](https://img.shields.io/badge/license-MIT-4183c4.svg)](https://github.com/fgrosse/pi-temp/blob/master/LICENSE)
+
 Small utility to export the CPU temperature of a Raspberry Pi as Prometheus metric.
+
+[![Build Status][travis_badge]][travis]
 
 ### Usage
 
@@ -34,3 +39,7 @@ CPU temperature: 54.768°C
 
 Node exporter doesn't contain this metric for my Pi and this was super easy
 to do by myself.
+
+### License
+
+© Friedrich Große 2018, distributed under [MIT License](LICENSE).
