@@ -35,6 +35,7 @@ func main() {
 		Name:      "temperature_celsius",
 		Help:      "The CPU temperature of this Raspberry Pi in degrees Celsius.",
 	})
+	prometheus.MustRegister(temperature)
 
 	debug := log.New(ioutil.Discard, "", 0)
 	if *verbose {
