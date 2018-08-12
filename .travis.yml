@@ -2,7 +2,6 @@ language: go
 
 go:
   - 1.x
-  - master
 
 script:
   - GOARCH=arm64 go build
