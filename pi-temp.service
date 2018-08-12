@@ -1,0 +1,11 @@
+[Unit]
+Description=Prometheus Temperature Monitor
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/pi-temp -interval=10s -addr=:9101
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

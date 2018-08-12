@@ -25,6 +25,7 @@ var (
 )
 
 func main() {
+	log.SetFlags(0)
 	ctx := Context()
 	flag.Parse()
 
