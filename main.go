@@ -35,7 +35,7 @@ func main() {
 		Help:      "The CPU temperature of this Raspberry Pi in degrees Celsius.",
 	})
 
-	debug := log.New(ioutil.Discard, "pi-temp", log.Ldate|log.Ltime)
+	debug := log.New(ioutil.Discard, "", 0)
 	if *verbose {
 		debug.SetOutput(os.Stderr)
 	} else {
@@ -78,7 +78,7 @@ func Server(addr string) *http.Server {
 		Handler:      h,
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
-		ErrorLog:     log.New(os.Stderr, "pi-temp", log.Ltime|log.Ldate),
+		ErrorLog:     log.New(os.Stderr, "HTTP: ", 0),
 	}
 }
 
