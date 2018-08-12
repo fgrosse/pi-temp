@@ -38,8 +38,7 @@ CPU temperature: 54.768°C
 
 ### Why?
 
-Node exporter doesn't contain this metric for my Pi and this was super easy
-to do by myself.
+Node exporter apparently doesn't track this metric and this was super easy to do by myself.
 
 ### Systemd
 

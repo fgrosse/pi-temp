@@ -45,13 +45,12 @@ func main() {
 		log.Println("If you want to see more verbose log run with -debug")
 	}
 
-	go CheckTemperature(ctx, debug, *path, *interval, temperature)
+	go MonitorTemperature(ctx, debug, *path, *interval, temperature)
 	go func() { log.Fatal(s.ListenAndServe()) }()
 
 	// Run until we are interrupted
 	<-ctx.Done()
-	ctx = Context() // new context to interrupt shutdown if necessary
-	s.Shutdown(ctx)
+	s.Shutdown(Context())
 }
 
 // Context returns a context that is cancelled automatically when a SIGINT,
@@ -84,9 +83,9 @@ func Server(addr string) *http.Server {
 	}
 }
 
-// CheckTemperature periodically reads the temperature from the path (e.g.
+// MonitorTemperature periodically reads the temperature from the path (e.g.
 // "/sys/class/thermal/thermal_zone0/temp") and updates the given prometheus gauge.
-func CheckTemperature(ctx context.Context, debug *log.Logger, path string, interval time.Duration, temperature prometheus.Gauge) {
+func MonitorTemperature(ctx context.Context, debug *log.Logger, path string, interval time.Duration, temperature prometheus.Gauge) {
 	debug.Printf("Checking temperature every %v from %q", interval, path)
 
 	for {
